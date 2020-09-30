@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
-  const [showGenerator, setShowGenerator] = useState(true);
+  const [showGenerator, setShowGenerator] = useState(false);
   return (
     <Wrapper>
       {showGenerator && (

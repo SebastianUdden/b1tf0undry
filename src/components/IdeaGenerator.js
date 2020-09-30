@@ -68,7 +68,7 @@ export default ({ handleClick }) => {
     setTimeout(() => {
       setCount(count + 1);
     }, 200);
-  }, [count]);
+  }, [count, stopInner, stopOuter]);
 
   return (
     <>
