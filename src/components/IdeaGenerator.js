@@ -10,10 +10,14 @@ const IdeaGenerator = styled.div`
 `;
 const CogOverlay = styled.div`
   display: grid;
+  margin-top: ${(p) => p.marginTop};
 `;
 const Title = styled.h1`
-  margin-top: -4rem;
-  margin-bottom: 4rem;
+  margin: 0;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  opacity: ${(p) => (p.visible ? 1 : 0)};
+  transition: opacity 3000ms ease-in-out;
 `;
 const Word = styled.div`
   display: flex;
@@ -30,7 +34,10 @@ const ExitButton = styled.button`
   border: none;
   border-bottom: 1px solid white;
   color: white;
-  margin-top: 5rem;
+  opacity: ${(p) => (p.visible ? 1 : 0)};
+  transition: opacity 5000ms ease-in-out;
+  margin-top: 2rem;
+  margin-bottom: -2rem;
 `;
 
 export const CogWrapper = styled.div`
@@ -48,9 +55,9 @@ const getRandom = (array) => array[Math.floor(Math.random() * array.length)];
 export default ({ handleClick }) => {
   const [adjective, setAdjective] = useState("");
   const [substantive, setSubstantive] = useState("");
-  const [count, setCount] = useState(0);
   const [stopInner, setStopInner] = useState(false);
   const [stopOuter, setStopOuter] = useState(false);
+  const [count, setCount] = useState(0);
 
   const handleStop = (e, type) => {
     e.stopPropagation();
@@ -70,40 +77,69 @@ export default ({ handleClick }) => {
     }, 200);
   }, [count, stopInner, stopOuter]);
 
+  const showOuterCog = count > 10;
+  const showInnerCog = count > 15;
+
   return (
     <>
-      <Title>Idea Cogs</Title>
+      <Title visible={showOuterCog}>Idea Cogs</Title>
       <IdeaGenerator>
         <Word justifyContent="flex-end">
-          <Text useBorder={stopOuter}>{adjective}</Text>
+          {showOuterCog && <Text useBorder={stopOuter}>{adjective}</Text>}
         </Word>
         <CogOverlay>
-          <CogWrapper>
-            <Cog
-              color="#151515"
-              size="5rem"
-              fromRotation="0deg"
-              toRotation={`-${stopInner ? 0 : 360}deg`}
-              zIndex={1}
-              speed={3000}
-              onClick={(e) => handleStop(e, "inner")}
-            />
-          </CogWrapper>
-          <CogWrapper>
-            <Cog
-              color="white"
-              size="11rem"
-              toRotation={`${stopOuter ? 0 : 360}deg`}
-              speed={5000}
-              onClick={(e) => handleStop(e, "outer")}
-            />
-          </CogWrapper>
+          {!showOuterCog && (
+            <>
+              <CogWrapper>
+                <Cog
+                  toRotation="-360deg"
+                  color="#151515"
+                  speed={3000}
+                  size={`${count / 2}rem`}
+                  zIndex={1}
+                />
+              </CogWrapper>
+              <CogWrapper>
+                <Cog
+                  toRotation="360deg"
+                  speed={18000}
+                  color="#eee"
+                  size={`${count}rem`}
+                />
+              </CogWrapper>
+            </>
+          )}
+          {showOuterCog && (
+            <>
+              <CogWrapper>
+                <Cog
+                  color="#151515"
+                  size="5rem"
+                  toRotation={`-${stopInner ? 0 : 360}deg`}
+                  zIndex={1}
+                  speed={3000}
+                  onClick={(e) => handleStop(e, "inner")}
+                />
+              </CogWrapper>
+              <CogWrapper>
+                <Cog
+                  color="white"
+                  size="11rem"
+                  toRotation={`${stopOuter ? 0 : 360}deg`}
+                  speed={5000}
+                  onClick={(e) => handleStop(e, "outer")}
+                />
+              </CogWrapper>
+            </>
+          )}
         </CogOverlay>
         <Word justifyContent="flex-start">
-          <Text useBorder={stopInner}>{substantive}</Text>
+          {showOuterCog && <Text useBorder={stopInner}>{substantive}</Text>}
         </Word>
       </IdeaGenerator>
-      <ExitButton onClick={handleClick}>Back</ExitButton>
+      <ExitButton onClick={handleClick} visible={showInnerCog}>
+        Back
+      </ExitButton>
     </>
   );
 };

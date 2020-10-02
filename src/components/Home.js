@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Cog from "./Cog";
 
-const Home = styled.div``;
+const Home = styled.div`
+  opacity: ${(p) => (!p.visible ? 0 : 1)};
+  transition: opacity 300ms ease-in-out;
+`;
 const Header = styled.header`
   max-width: 537px;
   text-align: center;
@@ -28,10 +31,18 @@ const UL = styled.ul`
 const LI = styled.li``;
 
 export default ({ handleClick }) => {
+  const [hideText, setHideText] = useState(false);
+
+  const onCogClick = () => {
+    setHideText(true);
+    setTimeout(() => {
+      handleClick();
+    }, 300);
+  };
   return (
-    <Home>
+    <Home visible={!hideText}>
       <Header>
-        <H1 onClick={handleClick}>
+        <H1 onClick={onCogClick}>
           b1tf
           <Cog
             color="white"

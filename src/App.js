@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   color: white;
   padding: 0 1rem;
   min-height: 100vh;
+  max-height: 100vh;
 `;
 
 export default () => {
