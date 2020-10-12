@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import About from "./components/About";
+import Contact from "./components/Contact";
 import Home from "./components/Home";
 import IdeaGenerator from "./components/IdeaGenerator";
 
@@ -17,13 +19,15 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
-  const [showGenerator, setShowGenerator] = useState(false);
+  const [tab, setTab] = useState("home");
   return (
     <Wrapper>
-      {showGenerator && (
-        <IdeaGenerator handleClick={() => setShowGenerator(false)} />
+      {tab === "idea-generator" && (
+        <IdeaGenerator handleClick={() => setTab("home")} />
       )}
-      {!showGenerator && <Home handleClick={() => setShowGenerator(true)} />}
+      {tab === "home" && <Home changeTab={(tab) => setTab(tab)} />}
+      {tab === "about" && <About changeTab={(tab) => setTab(tab)} />}
+      {tab === "contact" && <Contact changeTab={(tab) => setTab(tab)} />}
     </Wrapper>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ADJECTIVES, SUBSTANTIVES } from "../constants/ideas";
 import Cog from "./Cog";
+import { Button, Footer } from "./shared";
 
 const IdeaGenerator = styled.div`
   display: grid;
@@ -29,15 +30,9 @@ const Text = styled.span`
   padding-bottom: 0.3rem;
   border-bottom: ${(p) => (p.useBorder ? "2px solid #b82ad2" : "none")};
 `;
-const ExitButton = styled.button`
-  background-color: inherit;
-  border: none;
-  border-bottom: 1px solid white;
-  color: white;
+const ExitButton = styled(Button)`
   opacity: ${(p) => (p.visible ? 1 : 0)};
   transition: opacity 5000ms ease-in-out;
-  margin-top: 2rem;
-  margin-bottom: -2rem;
 `;
 
 export const CogWrapper = styled.div`
@@ -137,9 +132,11 @@ export default ({ handleClick }) => {
           {showOuterCog && <Text useBorder={stopInner}>{substantive}</Text>}
         </Word>
       </IdeaGenerator>
-      <ExitButton onClick={handleClick} visible={showInnerCog}>
-        Back
-      </ExitButton>
+      <Footer>
+        <ExitButton onClick={handleClick} visible={showInnerCog}>
+          Back
+        </ExitButton>
+      </Footer>
     </>
   );
 };
