@@ -1,15 +1,27 @@
 {
   "short_name": "b1tf0undry",
   "name": "www.b1tf0undry.com",
+  "description": "Home of the b1tf0unders",
   "icons": [
     {
-      "src": "logo.svg",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/svg"
+      "src": "/cog.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/cog.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "maskable_cog.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2b2e37",
+  "background_color": "#282c34"
 }
