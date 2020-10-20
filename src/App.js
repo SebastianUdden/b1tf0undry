@@ -4,6 +4,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import IdeaGenerator from "./components/IdeaGenerator";
+import NextHackathon from "./components/NextHackathon";
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,6 +29,9 @@ export default () => {
       {tab === "home" && <Home changeTab={(tab) => setTab(tab)} />}
       {tab === "about" && <About changeTab={(tab) => setTab(tab)} />}
       {tab === "contact" && <Contact changeTab={(tab) => setTab(tab)} />}
+      {tab === "next-hackathon" && (
+        <NextHackathon changeTab={(tab) => setTab(tab)} />
+      )}
     </Wrapper>
   );
 };

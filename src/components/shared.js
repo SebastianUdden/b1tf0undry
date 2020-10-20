@@ -29,16 +29,33 @@ export const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  `
+`;
 export const Button = styled.button`
   background-color: inherit;
   color: white;
   border: none;
   border-bottom: 1px solid white;
-  padding: 0.2rem 0;
+  padding: 0.1rem 0;
   margin: 0.5rem;
   cursor: pointer;
+  ${(p) =>
+    p.normal &&
+    `
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+  `}
+`;
+export const Link = styled.a`
+  background-color: inherit;
+  color: white;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
 `;
 export const Constraint = styled.div`
-  max-width: 537px;
-`
+  max-width: 540px;
+`;

@@ -42,8 +42,11 @@ export default ({ changeTab }) => {
           </H1>
           <P>
             A small collection of brilliant and motivated individuals, gathering
-            to develop new ideas and do brain-workouts on the first sunday of each
-            month in a casual hackathon-setting.
+            to develop new ideas and do brain-workouts on the{" "}
+            <Button normal onClick={() => changeTab("next-hackathon")}>
+              first sunday
+            </Button>{" "}
+            of each month in a casual hackathon-setting.
           </P>
         </Header>
         <Main>
