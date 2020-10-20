@@ -46,8 +46,8 @@ const Month = styled.p`
 `;
 
 const nthWeekdayOfMonth = (weekday, n, date) => {
-  let count = 0,
-    idate = new Date(date.getFullYear(), date.getMonth(), 1);
+  const idate = new Date(date.getFullYear(), date.getMonth(), 1);
+  let count = 0;
   while (true) {
     if (idate.getDay() === weekday) {
       if (++count == n) {
