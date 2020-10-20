@@ -50,7 +50,7 @@ const nthWeekdayOfMonth = (weekday, n, date) => {
   let count = 0;
   while (true) {
     if (idate.getDay() === weekday) {
-      if (++count == n) {
+      if (++count === n) {
         break;
       }
     }
