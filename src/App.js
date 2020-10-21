@@ -1,37 +1,36 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
-import IdeaGenerator from "./components/IdeaGenerator";
-import NextHackathon from "./components/NextHackathon";
+import Why from "./pages/Why";
+import How from "./pages/How";
+import What from "./pages/What";
+import IdeaGenerator from "./pages/IdeaGenerator";
+import When from "./pages/When";
+import Navigation from "./components/Navigation";
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   background-color: #282c34;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(16px + 1vmin);
   color: white;
-  padding: 0 1rem;
+  padding: 3rem 1rem;
   min-height: 100vh;
   max-height: 100vh;
 `;
 
 export default () => {
-  const [tab, setTab] = useState("home");
+  const [tab, setTab] = useState("what");
   return (
     <Wrapper>
       {tab === "idea-generator" && (
-        <IdeaGenerator handleClick={() => setTab("home")} />
+        <IdeaGenerator changeTab={(t) => setTab(t)} />
       )}
-      {tab === "home" && <Home changeTab={(tab) => setTab(tab)} />}
-      {tab === "about" && <About changeTab={(tab) => setTab(tab)} />}
-      {tab === "contact" && <Contact changeTab={(tab) => setTab(tab)} />}
-      {tab === "next-hackathon" && (
-        <NextHackathon changeTab={(tab) => setTab(tab)} />
-      )}
+      {tab === "what" && <What changeTab={(t) => setTab(t)} />}
+      {tab === "why" && <Why changeTab={(t) => setTab(t)} />}
+      {tab === "when" && <When changeTab={(t) => setTab(t)} />}
+      {tab === "how" && <How changeTab={(t) => setTab(t)} />}
+      <Navigation onChange={(t) => setTab(t)} selected={tab} />
     </Wrapper>
   );
 };

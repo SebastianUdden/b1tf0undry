@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Cog from "./Cog";
-import { H1, H2 as H2UI, P, Button, Link, Constraint, Footer } from "./shared";
+import Header from "../components/Header";
+import { H2 as H2UI, P, Link, Constraint } from "./shared";
 
 const NextHackathon = styled.div`
   max-width: 537px;
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   background-color: #222;
   border: none;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.2rem 2rem;
   margin-bottom: 1rem;
 `;
 const H2 = styled(H2UI)`
@@ -36,6 +36,7 @@ const DaysWrapper = styled.div`
 `;
 const DaysRemaining = styled(P)`
   margin: 0;
+  font-weight: 500;
 `;
 const Day = styled.p`
   font-size: 55px;
@@ -141,16 +142,13 @@ export default ({ changeTab }) => {
   return (
     <Constraint>
       <NextHackathon visible={!hideText}>
-        <H1 onClick={() => changeTab("home")}>
-          b1tf
-          <Cog
-            color="white"
-            size="calc(21px + 2vmin)"
-            margin="0 0 -0.23rem 0"
-            onClick={onCogClick}
-          />
-          undry
-        </H1>
+        <Header onCogClick={onCogClick} changeTab={(t) => changeTab(t)} />
+        <H2>So you want join us?</H2>
+        <P>
+          Awesome, though we are a small group by design we are always on the
+          lookout for potential new members. Sign up and let us know why you'd
+          make a great b1tf0under!
+        </P>
         <Wrapper>
           <H2>Next Hackathon</H2>
           <DateWrapper>
@@ -164,9 +162,6 @@ export default ({ changeTab }) => {
         <Link href={message} target="_blank">
           Sign up here
         </Link>
-        <Footer>
-          <Button onClick={() => changeTab("home")}>Back</Button>
-        </Footer>
       </NextHackathon>
     </Constraint>
   );

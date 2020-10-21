@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ADJECTIVES, SUBSTANTIVES } from "../constants/ideas";
-import Cog from "./Cog";
-import { Button, Footer } from "./shared";
+import Cog from "../components/Cog";
+import Page from "../components/Page";
 
 const IdeaGenerator = styled.div`
   display: grid;
   grid-template-columns: 25% 1fr 25%;
-  width: 100%;
+  width: 100vw;
+  max-width: 540px;
 `;
 const CogOverlay = styled.div`
   display: grid;
   margin-top: ${(p) => p.marginTop};
 `;
-const Title = styled.h1`
-  margin: 0;
-  margin-top: -2rem;
+const Title = styled.h2`
   margin-bottom: 2rem;
+  text-align: center;
   opacity: ${(p) => (p.visible ? 1 : 0)};
   transition: opacity 3000ms ease-in-out;
 `;
@@ -29,10 +29,6 @@ const Word = styled.div`
 const Text = styled.span`
   padding-bottom: 0.3rem;
   border-bottom: ${(p) => (p.useBorder ? "2px solid #b82ad2" : "none")};
-`;
-const ExitButton = styled(Button)`
-  opacity: ${(p) => (p.visible ? 1 : 0)};
-  transition: opacity 5000ms ease-in-out;
 `;
 
 export const CogWrapper = styled.div`
@@ -47,7 +43,7 @@ export const CogWrapper = styled.div`
 
 const getRandom = (array) => array[Math.floor(Math.random() * array.length)];
 
-export default ({ handleClick }) => {
+export default ({ changeTab }) => {
   const [adjective, setAdjective] = useState("");
   const [substantive, setSubstantive] = useState("");
   const [stopInner, setStopInner] = useState(false);
@@ -73,10 +69,9 @@ export default ({ handleClick }) => {
   }, [count, stopInner, stopOuter]);
 
   const showOuterCog = count > 10;
-  const showInnerCog = count > 15;
 
   return (
-    <>
+    <Page changeTab={() => changeTab("what")}>
       <Title visible={showOuterCog}>Idea Cogs</Title>
       <IdeaGenerator>
         <Word justifyContent="flex-end">
@@ -132,11 +127,6 @@ export default ({ handleClick }) => {
           {showOuterCog && <Text useBorder={stopInner}>{substantive}</Text>}
         </Word>
       </IdeaGenerator>
-      <Footer>
-        <ExitButton onClick={handleClick} visible={showInnerCog}>
-          Back
-        </ExitButton>
-      </Footer>
-    </>
+    </Page>
   );
 };

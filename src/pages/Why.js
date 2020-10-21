@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Cog from "./Cog";
-import { H1, H2, LI, UL, Button, Constraint, Footer } from "./shared";
+import Header from "../components/Header";
+import { CTA } from "./shared";
+import { H2, LI, UL, Constraint } from "./shared";
 
 const About = styled.div`
   opacity: ${(p) => (!p.visible ? 0 : 1)};
@@ -15,8 +16,8 @@ const About = styled.div`
 export default ({ changeTab }) => {
   const [hideText, setHideText] = useState(false);
 
-  const onCogClick = e => {
-    e.stopPropagation()
+  const onCogClick = (e) => {
+    e.stopPropagation();
     setHideText(true);
     setTimeout(() => {
       changeTab("idea-generator");
@@ -25,11 +26,7 @@ export default ({ changeTab }) => {
   return (
     <Constraint>
       <About visible={!hideText}>
-        <H1 onClick={() => changeTab("home")}>
-          b1tf
-          <Cog color="white" size="calc(21px + 2vmin)" margin="0 0 -0.23rem 0" onClick={onCogClick} />
-          undry
-        </H1>
+        <Header onCogClick={onCogClick} changeTab={(t) => changeTab(t)} />
         <H2>What you'll get</H2>
         <UL>
           <LI>A lot of fun</LI>
@@ -43,11 +40,8 @@ export default ({ changeTab }) => {
           <LI>A collaborative spirit</LI>
           <LI>Part of one sunday a month</LI>
         </UL>
-        
-        <Footer>
-          <Button onClick={() => changeTab("contact")}>Sounds amazing, I want in!</Button>
-          <Button onClick={() => changeTab("home")}>Back</Button>
-        </Footer>
+
+        <CTA onClick={() => changeTab("how")}>But how does it work?</CTA>
       </About>
     </Constraint>
   );
