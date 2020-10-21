@@ -104,7 +104,7 @@ const getDaysRemaining = (date) => {
   const seconds = diff / 1000;
   const minutes = seconds / 60;
   const hours = minutes / 60;
-  return Math.ceil(hours / 24);
+  return Math.floor(hours / 24);
 };
 
 const getNextHackathon = () => {
