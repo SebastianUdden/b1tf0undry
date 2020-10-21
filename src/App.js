@@ -6,12 +6,13 @@ import What from "./pages/What";
 import IdeaGenerator from "./pages/IdeaGenerator";
 import When from "./pages/When";
 import Navigation from "./components/Navigation";
+import { colors } from "./constants/colors";
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #282c34;
+  background-color: ${colors.background};
   font-size: calc(16px + 1vmin);
   color: white;
   padding: 3rem 1rem;

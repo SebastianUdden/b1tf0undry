@@ -59,5 +59,5 @@ export const Link = styled.a`
 `;
 export const Constraint = styled.div`
   max-width: 540px;
-  margin-top: 10rem;
+  margin-top: 100px;
 `;

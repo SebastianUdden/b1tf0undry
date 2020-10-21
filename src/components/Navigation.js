@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { colors } from "../constants/colors";
 
 const Navigation = styled.div`
   position: fixed;
@@ -22,7 +23,7 @@ const Button = styled.button`
   padding: 20px;
   font-size: 16px;
   width: 100%;
-  background-color: inherit;
+  background-color: ${colors.background};
   color: inherit;
   border: none;
   text-transform: capitalize;

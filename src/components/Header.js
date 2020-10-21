@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { colors } from "../constants/colors";
 import { H1 } from "../pages/shared";
 import Cog from "./Cog";
 
@@ -10,6 +11,7 @@ const Header = styled.div`
   right: 0;
   display: flex;
   border-bottom: 1px solid #efefef;
+  background-color: ${colors.background};
   justify-content: center;
   align-items: center;
 `;
