@@ -10,6 +10,7 @@ const Navigation = styled.div`
   display: flex;
   justify-content: space-evenly;
   border-top: 1px solid #efefef;
+  background-color: ${colors.background};
   @media (min-width: 860px) {
     top: 95px;
     justify-content: flex-start;
