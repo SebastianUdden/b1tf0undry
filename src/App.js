@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
-  const [tab, setTab] = useState("idea-generator");
+  const [tab, setTab] = useState("what");
   return (
     <Wrapper>
       {tab === "idea-generator" && (

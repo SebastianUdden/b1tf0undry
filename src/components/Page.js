@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 const Body = styled.div`
   opacity: ${(p) => (!p.visible ? 0 : 1)};
   transition: opacity 300ms ease-in-out;
-  max-width: 540px;
+  max-width: 580px;
   margin: 3vh auto;
   padding: 0 5vw 10vh;
   display: flex;
