@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Page from "../components/Page";
 import { CTA } from "./shared";
 import { H2, LI, UL } from "./shared";
