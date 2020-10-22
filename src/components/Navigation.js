@@ -12,7 +12,7 @@ const Navigation = styled.div`
   border-top: 1px solid #efefef;
   background-color: ${colors.background};
   @media (min-width: 860px) {
-    top: 95px;
+    top: 91px;
     justify-content: flex-start;
     border-top: none;
     border-right: 1px solid #efefef;

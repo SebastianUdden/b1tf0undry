@@ -5,15 +5,16 @@ import { H1 } from "../pages/shared";
 import Cog from "./Cog";
 
 const Header = styled.div`
-  position: fixed;
+  /* position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   display: flex;
   border-bottom: 1px solid #efefef;
   background-color: ${colors.background};
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 export default ({ onCogClick, changeTab }) => {

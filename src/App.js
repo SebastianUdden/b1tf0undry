@@ -15,13 +15,11 @@ const Wrapper = styled.div`
   background-color: ${colors.background};
   font-size: calc(16px + 1vmin);
   color: white;
-  padding: 3rem 1rem;
   min-height: 100vh;
-  max-height: 100vh;
 `;
 
 export default () => {
-  const [tab, setTab] = useState("what");
+  const [tab, setTab] = useState("why");
   return (
     <Wrapper>
       {tab === "idea-generator" && (

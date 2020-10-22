@@ -1,23 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
-import { H2 as H2UI, P, Link, Constraint } from "./shared";
+import Page from "../components/Page";
+import { H2 as H2UI, P, Link } from "./shared";
 
-const NextHackathon = styled.div`
-  max-width: 537px;
-  opacity: ${(p) => (!p.visible ? 0 : 1)};
-  transition: opacity 300ms ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 5rem;
-`;
 const Wrapper = styled.div`
   background-color: #222;
   border: none;
   border-radius: 12px;
   padding: 1.2rem 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2vh;
 `;
 const H2 = styled(H2UI)`
   margin: 0 0 0.5rem;
@@ -28,7 +19,6 @@ const DateWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  margin: 0.5rem 0;
   border-radius: 6px;
 `;
 const DaysWrapper = styled.div`
@@ -122,16 +112,8 @@ const getNextHackathon = () => {
 };
 
 export default ({ changeTab }) => {
-  const [hideText, setHideText] = useState(false);
   const { month, day, daysRemaining } = getNextHackathon();
 
-  const onCogClick = (e) => {
-    e.stopPropagation();
-    setHideText(true);
-    setTimeout(() => {
-      changeTab("idea-generator");
-    }, 300);
-  };
   const mail = "mailto:sebastian.udden@gmail.com";
   const subject = `?subject=b1tf0undry hackathon - ${month} ${dayFormat(day)}`;
   const body = `&body=Hi,%0d%0aI'm super excited to join the next b1tf0undry hackathon on ${month} ${dayFormat(
@@ -140,29 +122,26 @@ export default ({ changeTab }) => {
   const message = `${mail}${subject}${body}`;
 
   return (
-    <Constraint>
-      <NextHackathon visible={!hideText}>
-        <Header onCogClick={onCogClick} changeTab={(t) => changeTab(t)} />
-        <H2>So you want join us?</H2>
-        <P>
-          Awesome, though we are a small group by design we are always on the
-          lookout for potential new members. Sign up and let us know why you'd
-          make a great b1tf0under!
-        </P>
-        <Wrapper>
-          <H2>Next Hackathon</H2>
-          <DateWrapper>
-            <Month>{month}</Month>
-            <Day>{day}</Day>
-          </DateWrapper>
-          <DaysWrapper>
-            <DaysRemaining>{daysRemaining} days remaining</DaysRemaining>
-          </DaysWrapper>
-        </Wrapper>
-        <Link href={message} target="_blank">
-          Sign up here
-        </Link>
-      </NextHackathon>
-    </Constraint>
+    <Page changeTab={changeTab}>
+      <H2>So you want join us?</H2>
+      <P>
+        Awesome, though we are a small group by design we are always on the
+        lookout for potential new members. Sign up and let us know why you'd
+        make a great b1tf0under!
+      </P>
+      <Wrapper>
+        <H2>Next Hackathon</H2>
+        <DateWrapper>
+          <Month>{month}</Month>
+          <Day>{day}</Day>
+        </DateWrapper>
+        <DaysWrapper>
+          <DaysRemaining>{daysRemaining} days remaining</DaysRemaining>
+        </DaysWrapper>
+      </Wrapper>
+      <Link href={message} target="_blank">
+        Sign up here
+      </Link>
+    </Page>
   );
 };
