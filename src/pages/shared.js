@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import { colors } from "../constants/colors";
 
 export const H1 = styled.h1`
   text-align: center;
-  margin: 1rem;
+  padding: 1rem;
+  margin: 0;
   cursor: pointer;
+  z-index: 100;
+  background-color: ${colors.background};
 `;
 export const H2 = styled.h2`
   text-align: center;
