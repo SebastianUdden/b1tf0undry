@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Page from "../components/Page";
-import { H2 as H2UI, P, Link } from "./shared";
+import { colors } from "../constants/colors";
+import { H2 as H2UI, P, Link, Constraint } from "./shared";
 
 const Wrapper = styled.div`
-  background-color: #222;
+  background-color: ${colors.alternateBackground};
   border: none;
   border-radius: 12px;
   padding: 1.2rem 2rem;
@@ -20,6 +21,7 @@ const DateWrapper = styled.div`
   align-items: center;
   padding: 1rem;
   border-radius: 6px;
+  margin-bottom: 10px;
 `;
 const DaysWrapper = styled.div`
   text-align: center;
@@ -123,25 +125,27 @@ export default ({ changeTab }) => {
 
   return (
     <Page changeTab={changeTab}>
-      <H2>So you want join us?</H2>
-      <P>
-        Awesome, though we are a small group by design we are always on the
-        lookout for potential new members. Sign up and let us know why you'd
-        make a great b1tf0under!
-      </P>
-      <Wrapper>
-        <H2>Next Hackathon</H2>
-        <DateWrapper>
-          <Month>{month}</Month>
-          <Day>{day}</Day>
-        </DateWrapper>
-        <DaysWrapper>
-          <DaysRemaining>{daysRemaining} days remaining</DaysRemaining>
-        </DaysWrapper>
-      </Wrapper>
-      <Link href={message} target="_blank">
-        Sign up here
-      </Link>
+      <Constraint>
+        <H2>So you want join us?</H2>
+        <P>
+          Awesome, though we are a small group by design we are always on the
+          lookout for potential new members. Sign up and let us know why you'd
+          make a great b1tf0under!
+        </P>
+        <Wrapper>
+          <H2>Next Hackathon</H2>
+          <DateWrapper>
+            <Month>{month}</Month>
+            <Day>{day}</Day>
+          </DateWrapper>
+          <DaysWrapper>
+            <DaysRemaining>{daysRemaining} days remaining</DaysRemaining>
+          </DaysWrapper>
+        </Wrapper>
+        <Link href={message} target="_blank">
+          Sign up here
+        </Link>
+      </Constraint>
     </Page>
   );
 };

@@ -55,6 +55,7 @@ export default ({ selected, onChange }) => {
       <Tab name="why" onChange={onChange} selected={selected} />
       <Tab name="how" onChange={onChange} selected={selected} />
       <Tab name="when" onChange={onChange} selected={selected} />
+      <Tab name="wow" onChange={onChange} selected={selected} />
     </Navigation>
   );
 };

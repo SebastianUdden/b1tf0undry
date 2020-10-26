@@ -12,6 +12,9 @@ const Header = styled.div`
   align-items: center;
   width: 100%;
   z-index: 100;
+  @media (min-width: 860px) {
+    position: fixed;
+  }
 `;
 
 export default ({ onCogClick, changeTab }) => {

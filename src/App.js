@@ -7,6 +7,7 @@ import IdeaGenerator from "./pages/IdeaGenerator";
 import When from "./pages/When";
 import Navigation from "./components/Navigation";
 import { colors } from "./constants/colors";
+import Wow from "./pages/Wow";
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,8 +28,9 @@ export default () => {
       )}
       {tab === "what" && <What changeTab={(t) => setTab(t)} />}
       {tab === "why" && <Why changeTab={(t) => setTab(t)} />}
-      {tab === "when" && <When changeTab={(t) => setTab(t)} />}
       {tab === "how" && <How changeTab={(t) => setTab(t)} />}
+      {tab === "when" && <When changeTab={(t) => setTab(t)} />}
+      {tab === "wow" && <Wow changeTab={(t) => setTab(t)} />}
       <Navigation onChange={(t) => setTab(t)} selected={tab} />
     </Wrapper>
   );

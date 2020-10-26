@@ -61,4 +61,11 @@ export const Link = styled.a`
   margin: 0.5rem;
   cursor: pointer;
   text-decoration: none;
+  font-size: calc(16px + 1vmin);
+`;
+export const Constraint = styled.div`
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
