@@ -17,6 +17,8 @@ const SVG = styled.svg`
   z-index: ${(p) => p.zIndex || 0};
   margin: ${(p) => p.margin || 0};
   transition: width 200ms linear;
+  max-width: 600px;
+  max-height: 600px;
   @media (prefers-reduced-motion: no-preference) {
     animation: ${(p) => rotate(p)} infinite ${(p) => p.speed || 20000}ms linear;
   }

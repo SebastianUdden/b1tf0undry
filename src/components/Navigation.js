@@ -11,6 +11,10 @@ const Navigation = styled.div`
   justify-content: space-evenly;
   border-top: 1px solid #efefef;
   background-color: ${colors.background};
+  overflow-x: scroll;
+  @media (min-width: 460px) {
+    overflow-x: hidden;
+  }
   @media (min-width: 860px) {
     top: 91px;
     justify-content: flex-start;
@@ -56,6 +60,7 @@ export default ({ selected, onChange }) => {
       <Tab name="how" onChange={onChange} selected={selected} />
       <Tab name="when" onChange={onChange} selected={selected} />
       <Tab name="wow" onChange={onChange} selected={selected} />
+      <Tab name="who" onChange={onChange} selected={selected} />
     </Navigation>
   );
 };

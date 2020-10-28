@@ -52,6 +52,8 @@ export const SUBSTANTIVES = [
   "choose-your-adventure",
   "click-game",
   "clock",
+  "co-op",
+  "dashboard",
   "documentation",
   "dog",
   "dragon",

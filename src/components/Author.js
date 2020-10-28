@@ -5,6 +5,11 @@ const Author = styled.div`
   margin-top: 10px;
   display: flex;
   align-items: center;
+  ${(p) =>
+    p.fullWidth &&
+    `
+    width: 100%;
+  `}
 `;
 const Img = styled.img`
   border-radius: 50%;
@@ -16,7 +21,7 @@ const Name = styled.label``;
 
 export default ({ img, name }) => {
   return (
-    <Author>
+    <Author fullWidth={name}>
       {img && <Img src={img} />}
       {name && <Name>{name}</Name>}
     </Author>

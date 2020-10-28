@@ -10,8 +10,8 @@ const Body = styled.div`
   opacity: ${(p) => (!p.visible ? 0 : 1)};
   transition: opacity 300ms ease-in-out;
   max-width: 540px;
-  margin: 3vh auto;
-  padding: 0 5vw 10vh;
+  margin: 0 auto;
+  padding: 3vh 5vw 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ const Body = styled.div`
   @media (min-width: 860px) {
     padding: 0 0 10vh;
     max-width: 70vw;
-    padding-top: 100px;
+    padding-top: 120px;
   }
 `;
 

@@ -1,8 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Page from "../components/Page";
 import { colors } from "../constants/colors";
-import { H2 as H2UI, P, Link, Constraint } from "./shared";
+import { H2, P, Link, Constraint, Button, LI } from "./shared";
 
 const Wrapper = styled.div`
   background-color: ${colors.alternateBackground};
@@ -10,9 +11,7 @@ const Wrapper = styled.div`
   border-radius: 12px;
   padding: 1.2rem 2rem;
   margin-bottom: 2vh;
-`;
-const H2 = styled(H2UI)`
-  margin: 0 0 0.5rem;
+  text-align: center;
 `;
 const DateWrapper = styled.div`
   border: 1px solid white;
@@ -28,7 +27,9 @@ const DaysWrapper = styled.div`
 `;
 const DaysRemaining = styled(P)`
   margin: 0;
+  color: orange;
   font-weight: 500;
+  opacity: 0.8;
 `;
 const Day = styled.p`
   font-size: 55px;
@@ -36,6 +37,26 @@ const Day = styled.p`
 `;
 const Month = styled.p`
   margin: 0;
+`;
+const ShowUpcoming = styled(Button)`
+  margin: 0 0 20px;
+`;
+const Upcoming = styled.ul`
+  background-color: ${colors.alternateBackground};
+  border: none;
+  border-radius: 12px;
+  padding: 1.2rem 2rem;
+  margin: 0 0 10px;
+  li {
+    list-style-type: none;
+    font-weight: 300;
+    color: #999;
+  }
+`;
+const Strong = styled.strong`
+  color: orange;
+  font-weight: 500;
+  opacity: 0.8;
 `;
 
 const nthWeekdayOfMonth = (weekday, n, date) => {
@@ -99,11 +120,11 @@ const getDaysRemaining = (date) => {
   return Math.floor(hours / 24);
 };
 
-const getNextHackathon = () => {
+const getNextHackathon = (months = 1) => {
   const current = new Date();
   let theDate = nthWeekdayOfMonth(0, 1, new Date());
   if (theDate < current) {
-    current.setMonth(theDate.getMonth() + 1);
+    current.setMonth(theDate.getMonth() + months);
     theDate = nthWeekdayOfMonth(0, 1, current);
   }
   const month = monthFormat(theDate.getMonth());
@@ -113,7 +134,23 @@ const getNextHackathon = () => {
   return { month, day, daysRemaining };
 };
 
+const getUpcoming = () => {
+  const monthsIndex = [...new Array(11).keys()];
+  return monthsIndex.map((index) => {
+    const { month, day } = getNextHackathon(index + 2);
+    return (
+      <LI>
+        Sunday,{" "}
+        <Strong>
+          {month} {dayFormat(day)}
+        </Strong>
+      </LI>
+    );
+  });
+};
+
 export default ({ changeTab }) => {
+  const [showUpcoming, setShowUpcoming] = useState(true);
   const { month, day, daysRemaining } = getNextHackathon();
 
   const mail = "mailto:sebastian.udden@gmail.com";
@@ -142,6 +179,10 @@ export default ({ changeTab }) => {
             <DaysRemaining>{daysRemaining} days remaining</DaysRemaining>
           </DaysWrapper>
         </Wrapper>
+        <ShowUpcoming onClick={() => setShowUpcoming(!showUpcoming)}>
+          {showUpcoming ? "Hide" : "Show"} upcoming
+        </ShowUpcoming>
+        {showUpcoming && <Upcoming>{getUpcoming()}</Upcoming>}
         <Link href={message} target="_blank">
           Sign up here
         </Link>

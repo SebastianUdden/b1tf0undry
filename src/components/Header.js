@@ -24,7 +24,7 @@ export default ({ onCogClick, changeTab }) => {
         b1tf
         <Cog
           color="white"
-          size="calc(21px + 2vmin)"
+          size="calc(21px + 1.5vmin)"
           margin="0 0 -0.23rem 0"
           onClick={onCogClick}
         />

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { colors } from "../constants/colors";
-import { H3, Link as LinkUI } from "../pages/shared";
+import ExternalLinkIcon from "./ExternalLinkIcon";
 import Author from "./Author";
 
-const Project = styled.div`
+const Gist = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   background-color: ${colors.alternateBackground};
   border-radius: 6px;
   padding: 2rem 2rem;
@@ -20,60 +19,43 @@ const Project = styled.div`
   margin: 10px;
   max-width: 300px;
 `;
-const Img = styled.div`
-  height: 150px;
-  background-image: ${(p) => `url(${p.src})`};
-  background-position: center;
-  background-size: cover;
-  border-radius: 6px;
-`;
-const Title = styled(H3)`
-  text-align: left;
-  margin: 15px 0 5px;
-  ${(p) =>
-    p.below &&
-    `
-    margin-top: auto;
-  `}
+const Title = styled.h3`
+  margin: 0 0 0 0;
 `;
 const Description = styled.p`
-  margin: 0 0 10px;
+  margin: 0.5rem 0 1rem;
 `;
-const Link = styled(LinkUI)`
-  display: inline-block;
-  margin: 5px 0 25px;
+const Link = styled.a`
+  color: orange;
+  text-decoration: none;
 `;
 const Authors = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: auto;
   ${(p) =>
     p.expand &&
     `
-    margin-top: 0;
     flex-direction: column;
   `}
 `;
 
-export default ({ title, description, href, img, authors }) => {
+export default ({ title, description, href, authors }) => {
   const [expand, setExpand] = useState(false);
   return (
-    <Project onClick={() => setExpand(!expand)}>
-      {img && <Img src={img} />}
-      {title && <Title>{title}</Title>}
+    <Gist onClick={() => setExpand(!expand)}>
+      <Title onClick={(e) => e.stopPropagation()}>
+        <Link href={href} target="_blank">
+          {title || href} <ExternalLinkIcon color="orange" />
+        </Link>
+      </Title>
       {description && (
         <Description>
           {expand ? description : `${description.substr(0, 50)}...`}
         </Description>
       )}
-      {href && (
-        <Link href={href} target="_blank">
-          {href}
-        </Link>
-      )}
       {authors && (
         <>
-          {expand && <Title below>b1tf0unders</Title>}
+          {expand && <Title>b1tf0unders</Title>}
           <Authors expand={expand}>
             {authors.map(({ name, img }) => (
               <Author img={img} name={expand && name} />
@@ -81,6 +63,6 @@ export default ({ title, description, href, img, authors }) => {
           </Authors>
         </>
       )}
-    </Project>
+    </Gist>
   );
 };

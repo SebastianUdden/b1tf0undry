@@ -1,4 +1,5 @@
 import React from "react";
+import Agenda from "../components/Agenda";
 import Page from "../components/Page";
 import { H2, P, CTA, Button, Constraint } from "./shared";
 
@@ -21,9 +22,10 @@ export default ({ changeTab }) => (
         hackathon.
       </P>
       <P>
-        We end with a small retro on what worked and what could be improved
-        before closing for the day.
+        We end with a small retrospective on what worked, what could be improved
+        and what can be learned before closing for the day.
       </P>
+      <Agenda changeTab={changeTab} />
       <CTA onClick={() => changeTab("when")}>
         Sounds amazing, when can I join?
       </CTA>
