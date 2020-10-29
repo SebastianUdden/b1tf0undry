@@ -63,10 +63,24 @@ export default ({ changeTab }) => {
               <Description>
                 A structured meeting without an agenda, the principle is that
                 all participants can bring talking points by writing them on
-                post-ITs, then a subject is voted on (&#10133;) to start the
-                first 5 minutes. After that the participants vote on either
-                continuing on the subject (&#128077;), picking a new subject
-                (&#128074;) or ending the round of lean coffee (&#128078;).
+                post-ITs, then a subject is voted on (
+                <span role="img" aria-label="Plus">
+                  &#10133;
+                </span>
+                ) to start the first 5 minutes. After that the participants vote
+                on either continuing on the subject (
+                <span role="img" aria-label="Thumb up">
+                  &#128077;
+                </span>
+                ), picking a new subject (
+                <span role="img" aria-label="Fist">
+                  &#128074;
+                </span>
+                ) or ending the round of lean coffee (
+                <span role="img" aria-label="Thumb down">
+                  &#128078;
+                </span>
+                ).
               </Description>
             </LI>
             <LI main>
@@ -107,17 +121,37 @@ export default ({ changeTab }) => {
               Wrap-up, retrospective and key learnings
               <EmojiList>
                 <EmojiLI>
-                  <Emoji>&#10133;</Emoji>What went good?
+                  <Emoji>
+                    <span role="img" aria-label="Plus">
+                      &#10133;
+                    </span>
+                  </Emoji>
+                  What went good?
                 </EmojiLI>
                 <EmojiLI>
-                  <Emoji>&#9935;</Emoji>What can be improved?
+                  <Emoji>
+                    <span role="img" aria-label="Upward curve">
+                      &#9935;
+                    </span>
+                  </Emoji>
+                  What can be improved?
                 </EmojiLI>
                 <EmojiLI>
-                  <Emoji>&#128161;</Emoji>Was there a special technique, snippet
-                  or method that was especially interesting or helpful?
+                  <Emoji>
+                    <span role="img" aria-label="Lightbulb">
+                      &#128161;
+                    </span>
+                  </Emoji>
+                  Was there a special technique, snippet or method that was
+                  especially interesting or helpful?
                 </EmojiLI>
                 <EmojiLI>
-                  <Emoji>&#127891;</Emoji>Can we turn it into a gist?
+                  <Emoji>
+                    <span role="img" aria-label="Scholar hat">
+                      &#127891;
+                    </span>
+                  </Emoji>
+                  Can we turn it into a gist?
                 </EmojiLI>
               </EmojiList>
             </LI>
