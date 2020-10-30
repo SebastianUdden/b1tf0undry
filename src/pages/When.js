@@ -150,7 +150,7 @@ const getUpcoming = () => {
 };
 
 export default ({ changeTab }) => {
-  const [showUpcoming, setShowUpcoming] = useState(true);
+  const [showUpcoming, setShowUpcoming] = useState(false);
   const { month, day, daysRemaining } = getNextHackathon();
 
   const mail = "mailto:sebastian.udden@gmail.com";

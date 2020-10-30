@@ -11,7 +11,7 @@ const Navigation = styled.div`
   justify-content: space-evenly;
   border-top: 1px solid #efefef;
   background-color: ${colors.background};
-  overflow-x: scroll;
+  overflow-x: hidden;
   @media (min-width: 460px) {
     overflow-x: hidden;
   }
@@ -25,7 +25,7 @@ const Navigation = styled.div`
   }
 `;
 const Button = styled.button`
-  padding: 20px;
+  padding: 20px 10px;
   font-size: 16px;
   width: 100%;
   background-color: ${colors.background};
