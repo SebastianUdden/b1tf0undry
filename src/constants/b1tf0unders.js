@@ -4,18 +4,12 @@ export const B1TF0UNDERS = {
     description: "",
     img:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Eopsaltria_australis_-_Mogo_Campground.jpg/500px-Eopsaltria_australis_-_Mogo_Campground.jpg",
-  },
-  eduardo: {
-    name: "Eduardo Castaneda",
-    description: "",
-    img:
-      "https://www.imperial.ac.uk/ImageCropToolT4/imageTool/uploaded-images/newseventsimage_1529346275459_mainnews2012_x1.jpg",
-  },
-  vladimir: {
-    name: "Vladimir Gorshunov",
-    description: "",
-    img:
-      "https://static.scientificamerican.com/sciam/cache/file/7A715AD8-449D-4B5A-ABA2C5D92D9B5A21_source.png?w=390&h=520&756A88D1-C0EA-4C21-92BE0BB43C14B265",
+    links: [
+      {
+        title: "LinkedIn",
+        href: "https://www.linkedin.com/in/alexander-arana-escobedo/",
+      },
+    ],
   },
   sebastian: {
     name: "Sebastian Uddén",
