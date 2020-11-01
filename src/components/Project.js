@@ -18,7 +18,7 @@ const Project = styled.div`
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
   margin: 10px;
-  max-width: 300px;
+  width: 300px;
 `;
 const Img = styled.div`
   height: 150px;
@@ -40,8 +40,9 @@ const Description = styled.p`
   margin: 0 0 10px;
 `;
 const Link = styled(LinkUI)`
-  display: inline-block;
+  display: inline;
   margin: 5px 0 25px;
+  text-align: center;
 `;
 const Authors = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ export default ({ title, description, href, img, authors }) => {
       )}
       {href && (
         <Link href={href} target="_blank">
-          {href}
+          Go to project
         </Link>
       )}
       {authors && (

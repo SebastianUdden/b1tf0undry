@@ -1,5 +1,5 @@
-import sebastianImage from "../assets/sebastian.png";
-import alexanderImage from "../assets/alexander.jpeg";
+import sebastianImage from "../assets/people/sebastian.png";
+import alexanderImage from "../assets/people/alexander.jpeg";
 export const B1TF0UNDERS = {
   alexander: {
     name: "Alexander Arana",
