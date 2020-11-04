@@ -62,13 +62,9 @@ export default ({ title, description, href, img, authors }) => {
     <Project onClick={() => setExpand(!expand)}>
       {img && <Img src={img} />}
       {title && <Title>{title}</Title>}
-      {description && (
-        <Description>
-          {expand ? description : `${description.substr(0, 50)}...`}
-        </Description>
-      )}
+      {description && expand && <Description>{description}</Description>}
       {href && (
-        <Link href={href} target="_blank">
+        <Link href={href} target="_blank" onClick={(e) => e.stopPropagation()}>
           Go to project
         </Link>
       )}

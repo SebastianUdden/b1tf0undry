@@ -24,8 +24,10 @@ export default ({ changeTab }) => (
       ))}
     </Portfolio>
     <H2>Gists</H2>
-    {GISTS.map((g) => (
-      <Gist {...g} />
-    ))}
+    <Portfolio>
+      {GISTS.map((g) => (
+        <Gist {...g} />
+      ))}
+    </Portfolio>
   </Page>
 );

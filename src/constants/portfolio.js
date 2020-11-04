@@ -7,7 +7,7 @@ export const PORTFOLIO = [
   {
     title: "Galactic Clock",
     description: "It's both TIME and SPACE!",
-    href: "https://galactic-clock.netlify.app/",
+    href: "https://www.galactic-clock.com/",
     img: galacticClock,
     authors: [alexander, sebastian],
   },

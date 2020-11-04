@@ -3,13 +3,14 @@ import styled from "styled-components";
 import { colors } from "../constants/colors";
 import ExternalLinkIcon from "./ExternalLinkIcon";
 import Author from "./Author";
+import { H3 } from "../pages/shared";
 
 const Gist = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${colors.alternateBackground};
   border-radius: 6px;
-  padding: 2rem 2rem;
+  padding: 1.3rem 2rem;
   cursor: pointer;
   opacity: 0.9;
   :hover {
@@ -17,16 +18,21 @@ const Gist = styled.div`
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
   margin: 10px;
-  max-width: 300px;
+  text-align: left;
+  width: 300px;
+  @media (min-width: 1000px) {
+    width: 500px;
+  }
 `;
-const Title = styled.h3`
-  margin: 0 0 0 0;
+const Title = styled(H3)`
+  text-align: left;
+  margin: 0;
 `;
 const Description = styled.p`
   margin: 0.5rem 0 1rem;
 `;
 const Link = styled.a`
-  color: orange;
+  color: white;
   text-decoration: none;
 `;
 const Authors = styled.div`
@@ -48,11 +54,7 @@ export default ({ title, description, href, authors }) => {
           {title || href} <ExternalLinkIcon color="orange" />
         </Link>
       </Title>
-      {description && (
-        <Description>
-          {expand ? description : `${description.substr(0, 50)}...`}
-        </Description>
-      )}
+      {description && expand && <Description>{description}</Description>}
       {authors && (
         <>
           {expand && <Title>b1tf0unders</Title>}
