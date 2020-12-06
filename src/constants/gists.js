@@ -3,6 +3,14 @@ import { B1TF0UNDERS } from "./b1tf0unders";
 const { sebastian } = B1TF0UNDERS;
 export const GISTS = [
   {
+    title: "Gists overview",
+    description:
+      "A clear overview of available gists and how they connect to each other.",
+    href:
+      "https://gist.github.com/SebastianUdden/0b3bdf3f65171b3b3442bf8ef176ba37",
+    authors: [sebastian],
+  },
+  {
     title: "Creating a gist",
     description:
       "How to create a gist from scratch. TLDR; it's really easy so just do it!",
