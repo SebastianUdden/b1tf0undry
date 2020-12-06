@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
-  const [tab, setTab] = useState("wow");
+  const [tab, setTab] = useState("what");
   return (
     <Wrapper>
       {tab === "idea-generator" && (
@@ -31,7 +31,7 @@ export default () => {
       {tab === "why" && <Why changeTab={(t) => setTab(t)} />}
       {tab === "how" && <How changeTab={(t) => setTab(t)} />}
       {tab === "when" && <When changeTab={(t) => setTab(t)} />}
-      {tab === "wow" && <Wow changeTab={(t) => setTab(t)} />}
+      {tab === "projects" && <Wow changeTab={(t) => setTab(t)} />}
       {tab === "who" && <Who changeTab={(t) => setTab(t)} />}
       <Navigation onChange={(t) => setTab(t)} selected={tab} />
     </Wrapper>

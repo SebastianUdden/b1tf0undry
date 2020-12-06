@@ -113,8 +113,8 @@ export default ({ changeTab }) => {
                 point, b1tf0undry is not about making something huge and
                 sprawling, but rather small and usable. The result of the
                 hackathon is considered ready for release no matter what. Check
-                the previous results{" "}
-                <Button onClick={() => changeTab("wow")}>here.</Button>
+                out the previous results{" "}
+                <Button onClick={() => changeTab("projects")}>here.</Button>
               </Description>
             </LI>
             <LI main>

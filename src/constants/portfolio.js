@@ -12,9 +12,9 @@ export const PORTFOLIO = [
     authors: [alexander, sebastian],
   },
   {
-    title: "Namnsdag",
+    title: "Dagens namnsdag",
     description: "Shows the name of the day.",
-    href: "https://namnsdag.netlify.app/",
+    href: "https://www.dagens-namnsdag.se/",
     img: namnsdag,
     authors: [alexander, sebastian],
   },

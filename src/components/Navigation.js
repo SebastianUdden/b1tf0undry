@@ -26,7 +26,7 @@ const Navigation = styled.div`
 `;
 const Button = styled.button`
   padding: 20px 10px;
-  font-size: 16px;
+  font-size: 13px;
   width: 100%;
   background-color: ${colors.background};
   color: inherit;
@@ -59,7 +59,7 @@ export default ({ selected, onChange }) => {
       <Tab name="why" onChange={onChange} selected={selected} />
       <Tab name="how" onChange={onChange} selected={selected} />
       <Tab name="when" onChange={onChange} selected={selected} />
-      <Tab name="wow" onChange={onChange} selected={selected} />
+      <Tab name="projects" onChange={onChange} selected={selected} />
       <Tab name="who" onChange={onChange} selected={selected} />
     </Navigation>
   );
